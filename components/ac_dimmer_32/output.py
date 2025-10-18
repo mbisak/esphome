@@ -6,7 +6,7 @@ from esphome.const import CONF_ID, CONF_METHOD, CONF_MIN_POWER
 
 CODEOWNERS = ["@glmnet"]
 
-ac_dimmer_ns = cg.esphome_ns.namespace("ac_dimmer")
+ac_dimmer_ns = cg.esphome_ns.namespace("ac_dimmer_32")
 AcDimmer = ac_dimmer_ns.class_("AcDimmer", output.FloatOutput, cg.Component)
 
 DimMethod = ac_dimmer_ns.enum("DimMethod")
