@@ -64,7 +64,7 @@ class AcDimmer_32 : public output::FloatOutput, public Component {
   DimMethod method_;
 };
 
-}  // namespace ac_dimmer
+}  // namespace ac_dimmer_32
 }  // namespace esphome
 
 #endif  // USE_ARDUINO
