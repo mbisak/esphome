@@ -7,7 +7,7 @@ from esphome.const import CONF_ID, CONF_METHOD, CONF_MIN_POWER
 CODEOWNERS = ["@glmnet"]
 
 ac_dimmer_ns = cg.esphome_ns.namespace("ac_dimmer_32")
-AcDimmer = ac_dimmer_ns.class_("AcDimmer", output.FloatOutput, cg.Component)
+AcDimmer = ac_dimmer_ns.class_("AcDimmer_32", output.FloatOutput, cg.Component)
 
 DimMethod = ac_dimmer_ns.enum("DimMethod")
 DIM_METHODS = {
@@ -22,7 +22,7 @@ CONF_INIT_WITH_HALF_CYCLE = "init_with_half_cycle"
 CONFIG_SCHEMA = cv.All(
     output.FLOAT_OUTPUT_SCHEMA.extend(
         {
-            cv.Required(CONF_ID): cv.declare_id(AcDimmer),
+            cv.Required(CONF_ID): cv.declare_id(AcDimmer_32),
             cv.Required(CONF_GATE_PIN): pins.internal_gpio_output_pin_schema,
             cv.Required(CONF_ZERO_CROSS_PIN): pins.internal_gpio_input_pin_schema,
             cv.Optional(CONF_INIT_WITH_HALF_CYCLE, default=True): cv.boolean,
