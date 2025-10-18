@@ -1,6 +1,6 @@
 #ifdef USE_ARDUINO
 
-#include "ac_dimmer.h"
+#include "ac_dimmer_32.h"
 #include "esphome/core/helpers.h"
 #include "esphome/core/log.h"
 #include <cmath>
@@ -14,7 +14,7 @@
 #endif
 
 namespace esphome {
-namespace ac_dimmer {
+namespace ac_dimmer_32 {
 
 static const char *const TAG = "ac_dimmer";
 
@@ -158,7 +158,7 @@ static hw_timer_t *dimmer_timer = nullptr;  // NOLINT(cppcoreguidelines-avoid-no
 void IRAM_ATTR HOT AcDimmerDataStore::s_timer_intr() { timer_interrupt(); }
 #endif
 
-void AcDimmer::setup() {
+void AcDimmer_32::setup() {
   // extend all_dimmers array with our dimmer
 
   // Need to be sure the zero cross pin is setup only once, ESP8266 fails and ESP32 seems to fail silently
@@ -203,15 +203,15 @@ void AcDimmer::setup() {
   timerAlarm(dimmer_timer, 50, true, 0);
 #endif
 }
-void AcDimmer::write_state(float state) {
+void AcDimmer_32::write_state(float state) {
   state = std::acos(1 - (2 * state)) / std::numbers::pi;  // RMS power compensation
   auto new_value = static_cast<uint16_t>(roundf(state * 65535));
   if (new_value != 0 && this->store_.value == 0)
     this->store_.init_cycle = this->init_with_half_cycle_;
   this->store_.value = new_value;
 }
-void AcDimmer::dump_config() {
-  ESP_LOGCONFIG(TAG, "AcDimmer:");
+void AcDimmer_32::dump_config() {
+  ESP_LOGCONFIG(TAG, "AcDimmer_32:");
   LOG_PIN("  Output Pin: ", this->gate_pin_);
   LOG_PIN("  Zero-Cross Pin: ", this->zero_cross_pin_);
   ESP_LOGCONFIG(TAG,
