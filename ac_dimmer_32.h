@@ -7,7 +7,7 @@
 #include "esphome/components/output/float_output.h"
 
 namespace esphome {
-namespace ac_dimmer {
+namespace ac_dimmer_32 {
 
 enum DimMethod { DIM_METHOD_LEADING_PULSE = 0, DIM_METHOD_LEADING, DIM_METHOD_TRAILING };
 
@@ -44,7 +44,7 @@ struct AcDimmerDataStore {
 #endif
 };
 
-class AcDimmer : public output::FloatOutput, public Component {
+class AcDimmer_32 : public output::FloatOutput, public Component {
  public:
   void setup() override;
 
