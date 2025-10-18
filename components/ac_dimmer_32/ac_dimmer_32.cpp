@@ -230,7 +230,7 @@ void AcDimmer_32::dump_config() {
   ESP_LOGV(TAG, "  Estimated Frequency: %.3fHz", 1e6f / this->store_.cycle_time_us / 2);
 }
 
-}  // namespace ac_dimmer
+}  // namespace ac_dimmer_32
 }  // namespace esphome
 
 #endif  // USE_ARDUINO
