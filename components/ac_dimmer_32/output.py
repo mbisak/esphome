@@ -22,7 +22,7 @@ CONF_INIT_WITH_HALF_CYCLE = "init_with_half_cycle"
 CONFIG_SCHEMA = cv.All(
     output.FLOAT_OUTPUT_SCHEMA.extend(
         {
-            cv.Required(CONF_ID): cv.declare_id(AcDimmer_32),
+            cv.Required(CONF_ID): cv.declare_id(AcDimmer_32), 
             cv.Required(CONF_GATE_PIN): pins.internal_gpio_output_pin_schema,
             cv.Required(CONF_ZERO_CROSS_PIN): pins.internal_gpio_input_pin_schema,
             cv.Optional(CONF_INIT_WITH_HALF_CYCLE, default=True): cv.boolean,
