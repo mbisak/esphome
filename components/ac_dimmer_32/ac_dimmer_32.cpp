@@ -11,7 +11,7 @@
 #endif
 #ifdef USE_ESP32_FRAMEWORK_ARDUINO
 #include <esp32-hal-timer.h>
-#include <freertos/freeRTOS.h>
+#include "freertos/freeRTOS.h"
 #endif
 
 namespace esphome {
