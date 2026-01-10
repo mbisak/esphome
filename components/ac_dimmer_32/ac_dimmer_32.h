@@ -56,7 +56,7 @@ class AcDimmer_32 : public output::FloatOutput, public Component {
   
  protected:
   void write_state(float state) override;
-  static void core1Task() {}
+  static void core1Task(void *pvParameters);
   InternalGPIOPin *gate_pin_;
   InternalGPIOPin *zero_cross_pin_;
   AcDimmerDataStore store_;
