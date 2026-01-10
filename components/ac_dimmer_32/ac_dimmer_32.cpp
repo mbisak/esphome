@@ -206,7 +206,7 @@ void AcDimmer_32::setup() {
   // are not callable from ISR (placed in flash storage).
   // Here we just use an interrupt firing every 50 µs.
   timerAlarm(dimmer_timer, 50, true, 0);
-  ////xTaskCreatePinnedToCore(this->core1Task, "interrupt control", 1024, NULL, 1, NULL, 1);
+  //xTaskCreatePinnedToCore(this->core1Task, "interrupt control", 1024, NULL, 1, NULL, 1);
 #endif
 }
 void AcDimmer_32::write_state(float state) {
