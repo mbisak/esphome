@@ -159,7 +159,7 @@ static hw_timer_t *dimmer_timer = nullptr;  // NOLINT(cppcoreguidelines-avoid-no
 void IRAM_ATTR HOT AcDimmerDataStore::s_timer_intr() { timer_interrupt(); }
 #endif
 
-void AcDimmer_32::core1Task() {
+static void AcDimmer_32::core1Task() {
   ESP_LOGCONFIG(TAG, "Task na druhem CPU");
 }
 
@@ -206,7 +206,7 @@ void AcDimmer_32::setup() {
   // are not callable from ISR (placed in flash storage).
   // Here we just use an interrupt firing every 50 µs.
   timerAlarm(dimmer_timer, 50, true, 0);
-  xTaskCreatePinnedToCore(AcDimmer_32::core1Task, "interrupt control", 1024, NULL, 1, NULL, 1);
+  xTaskCreatePinnedToCore(this->core1Task, "interrupt control", 1024, NULL, 1, NULL, 1);
 #endif
 }
 void AcDimmer_32::write_state(float state) {
