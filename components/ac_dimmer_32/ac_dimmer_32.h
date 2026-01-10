@@ -53,7 +53,7 @@ class AcDimmer_32 : public output::FloatOutput, public Component {
   void set_zero_cross_pin(InternalGPIOPin *zero_cross_pin) { zero_cross_pin_ = zero_cross_pin; }
   void set_init_with_half_cycle(bool init_with_half_cycle) { init_with_half_cycle_ = init_with_half_cycle; }
   void set_method(DimMethod method) { method_ = method; }
-  void core1Task();
+  static void core1Task();
  protected:
   void write_state(float state) override;
 
