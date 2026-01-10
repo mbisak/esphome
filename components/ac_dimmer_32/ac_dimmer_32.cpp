@@ -159,7 +159,7 @@ static hw_timer_t *dimmer_timer = nullptr;  // NOLINT(cppcoreguidelines-avoid-no
 void IRAM_ATTR HOT AcDimmerDataStore::s_timer_intr() { timer_interrupt(); }
 #endif
 
-void AcDimmer_32::core1Task() {
+void AcDimmer_32::core1Task(void *pvParameters) {
   ESP_LOGCONFIG(TAG, "Task na druhem CPU");
 }
 
